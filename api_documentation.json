@@ -1,0 +1,88 @@
+{
+    "setup": {
+        "clone_project": "git clone <your_repo_url>",
+        "install_dependencies": "pip install -r requirements.txt",
+        "migrate_database": "python manage.py migrate",
+        "create_superuser": "python manage.py createsuperuser",
+        "run_server": "python manage.py runserver"
+    },
+    "api_endpoints": {
+        "users": {
+            "list": "GET /api/users/",
+            "create": "POST /api/users/"
+        },
+        "categories": {
+            "list": "GET /api/categories/",
+            "create": "POST /api/categories/"
+        },
+        "tags": {
+            "list": "GET /api/tags/",
+            "create": "POST /api/tags/"
+        },
+        "blogs": {
+            "list": "GET /api/blogs/",
+            "create": "POST /api/blogs/",
+            "search": "GET /api/blogs/?search=keyword",
+            "filter_by_category": "GET /api/blogs/?category_id=1",
+            "filter_by_tag": "GET /api/blogs/?tags__id=1"
+        },
+        "products": {
+            "list": "GET /api/products/",
+            "create": "POST /api/products/",
+            "search": "GET /api/products/?search=keyword",
+            "filter_by_category": "GET /api/products/?category_id=1",
+            "filter_by_price": "GET /api/products/?price_min=100&price_max=500",
+            "filter_by_tag": "GET /api/products/?tags__id=1"
+        }
+    },
+    "sample_responses": {
+        "blogs_list": {
+            "count": 1,
+            "next": null,
+            "previous": null,
+            "results": [
+                {
+                    "id": 1,
+                    "title": "Sample Blog",
+                    "content": "This is a test blog content.",
+                    "author": 1,
+                    "category": {
+                        "id": 1,
+                        "name": "Tech"
+                    },
+                    "tags": [
+                        {
+                            "id": 1,
+                            "name": "Django"
+                        }
+                    ],
+                    "published_date": "2025-08-30T12:00:00Z"
+                }
+            ]
+        },
+        "products_list": {
+            "count": 1,
+            "next": null,
+            "previous": null,
+            "results": [
+                {
+                    "id": 1,
+                    "title": "Sample Product",
+                    "description": "This is a test product.",
+                    "category": {
+                        "id": 1,
+                        "name": "Electronics"
+                    },
+                    "tags": [
+                        {
+                            "id": 2,
+                            "name": "Mobile"
+                        }
+                    ],
+                    "price": 299.99,
+                    "available": true
+                }
+            ]
+        }
+    }
+}
